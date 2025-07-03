@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import environ
+from django.contrib.messages import constants as messages
 
+import sentry_sdk
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,7 +51,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -67,6 +69,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # allauth specific middleware
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'bug_tracker.urls'
@@ -155,12 +159,24 @@ MESSAGE_TAGS = {
     messages.ERROR: "alert-danger",
 }
 
-# SENTRY
+# Optional settings
+# SENTRY error reporting
 # ------------------------------------------------------------------------------
-sentry_sdk.init(
-    dsn=env("SENTRY_DSN"),
-    # Add data like request headers and IP for users,
-    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
-    send_default_pii=True,
-    environment=env("SENTRY_ENV", default="local"),
-)
+SENTRY_DSN = env("SENTRY_DSN", default=None)
+if SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=env("SENTRY_DSN"),
+        # Add data like request headers and IP for users,
+        # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+        send_default_pii=True,
+        environment=env("SENTRY_ENV", default="local"),
+    )
+
+
+# NTFY notifications
+# ------------------------------------------------------------------------------
+NTFY_URL = env("NTFY_URL", default=None)
+NTFY_TOKEN = env("NTFY_TOKEN", default=None)
+if NTFY_URL and NTFY_TOKEN:
+    NTFY_URL = env("NTFY_URL")
+    NTFY_TOKEN = env("NTFY_TOKEN")
