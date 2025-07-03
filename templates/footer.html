@@ -1,0 +1,16 @@
+{% load static %}
+<div class="container">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 border-top">
+    <div class="col-md-6 mb-3">
+      <p class="text-start">
+        <a class="navbar-brand" href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+            <img src="{% static 'icon/bug-tracker-32x32.png' %}" alt="BugTracker" width="32" height="32">
+            <span class="h4 ms-2">BugTracker</span>
+        </a>
+      </p>
+      <p class="text-start">
+        <a href="https://dataintel.pl" target="_blank" class="text-center text-body-secondary">Developed by Data Intelligence, {% now "Y" %}</a>
+      </p>
+    </div>
+  </footer>
+</div>
