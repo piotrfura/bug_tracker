@@ -1,0 +1,23 @@
+{% load static %}
+<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand"
+        href="{% url 'main:index' %}">
+        <img src="{% static 'images/bug-tracker-512x512.png' %}" style="height: 80px;" alt="Logo BugTracker" aria-label="Bug Tracker Home Page"><span class="fw-bold">  BugTracker</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ms-auto">
+          <li class="nav-item mx-auto {% if request.resolver_match.url_name == 'create_bug_report' %}active{% endif %}">
+            <a class="nav-link"
+               href="{% url 'main:create_bug_report' %}">
+                <i class="d-none d-sm-inline bi bi-bug-fill"></i>
+                <span class="">Report a bug</span>
+            </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>

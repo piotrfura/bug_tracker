@@ -1,0 +1,312 @@
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    background-color: #f0f0f0;
+    position: relative;
+    padding-top: 120px;
+    color: black;
+    height:  100%;
+    width: 100%;
+    min-height: 100%;
+    min-height: 100vh;
+    padding-bottom: 0px;
+    overflow: auto;
+}
+.background {
+    width: 100vw;
+    height: 120vh;
+    background-color: #f0f0f0;
+    background-size: cover;
+    position: fixed;
+    left: 50%;
+    transition: opacity 0.5s;
+    transform: translate3d(-50%, -50px, 0px);
+    z-index: -1;
+    object-fit: cover;
+}
+
+.nav-item {
+    color: white;
+    padding: 0;
+}
+
+.nav-item a {
+  color: #81BA1C;
+}
+.nav-item a:hover {
+  color: #F44D4D;
+}
+.nav-item.active a {
+  color: #F44D4D;
+}
+
+.navbar-brand {
+    color: #81BA1C;
+}
+.navbar-brand:hover {
+    color: #F44D4D;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    bg-opacity: 0.5;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    line-height: 13px;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #81BA1C;
+}
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: black;
+    text-align: center;
+}
+
+.emphasize {
+    color: #81BA1C;
+}
+
+a {
+    color: #81BA1C;
+    text-decoration: none;
+    transition: all 0.3s
+}
+a:hover {
+    color: #F44D4D;
+    text-decoration: none;
+    transition: all 0.3s
+}
+
+#main {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+
+.green-icon {
+    color: #2b775a;
+}
+
+.red-icon {
+    color: #F44D4D;
+}
+
+.blue-icon {
+    color: #2b5977;
+}
+
+.orange-icon {
+    color: #bc7a54;
+}
+
+.panel-background {
+    border:0px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: justify;
+}
+.row {
+    margin: 0;
+}
+
+.border_table {
+    border: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+td a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.breathingForm {
+  margin: 20px;
+}
+.form-floating input:focus + label {
+  color: black;
+}
+.form-floating input + label {
+  color: black;
+}
+.form-floating>label {
+  color: black;
+}
+.btn-time-primary {
+  --bs-btn-disabled-bg: grey;
+  --bs-btn-disabled-color: white;
+  --bs-btn-disabled-border-color: white;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: white;
+  --bs-btn-bg: #81BA1C;
+  --bs-btn-border-color: #81BA1C;
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #F44D4D;
+  --bs-btn-hover-border-color: white;
+  --bs-btn-focus-shadow-rgb: white;
+  --bs-btn-active-color: #F44D4D;
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: white;
+}
+.btn-time-danger {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: white;
+  --bs-btn-bg: #eb1515;
+  --bs-btn-border-color: #eb1515;
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #eb1515;
+  --bs-btn-hover-border-color: white;
+  --bs-btn-focus-shadow-rgb: #585858;
+  --bs-btn-active-color: #585858;
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: white;
+}
+.btn-time-delete {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: white;
+  --bs-btn-bg: #FF7D7A;
+  --bs-btn-border-color: #FF7D7A;
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #FF7D7A;
+  --bs-btn-hover-border-color: white;
+  --bs-btn-focus-shadow-rgb: #585858;
+  --bs-btn-active-color: #585858;
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: white;
+}
+.pagination>li>a,
+.pagination>li>span {
+    color: black;
+}
+.pagination>li>a:hover {
+    background-color: #52ab98;
+    color: #fff;
+    border: solid;
+    border-color: #52ab98;
+}
+.pagination>li.active>a {
+  background: #2b6777;
+  color: #fff;
+  border: solid;
+  border-color: #2b6777;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: black;
+        background-color: #81BA1C;
+    }
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+    color: white;
+    background-color: #495057;
+}
+.nav-pills .nav-link:hover, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #81BA1C;
+}
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+    z-index: 1050; /* High z-index to be on top of other content */
+    display: none; /* Hidden by default */
+}
+
+.text-below-spinner {
+    color: black; /* Choose a color that contrasts well with the overlay */
+    text-align: center;
+    margin-top: 2em; /* Spacing between spinner and text */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.dot {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.cookies-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  background-color: #212529;
+  color: #FFFFFF;
+  left: 0;
+  width: 100%;
+  font-size: 0.7em;
+  padding: 7px 0;
+  transition: all 0.3s; }
+  .cookies-bar .cookies-bar__content {
+    text-align: center;}
+  .cookies-bar .cookies-bar__accept {
+    margin-right: 2em;
+    float: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFFFFF; }
+  .cookies-bar .cookies-bar__accept:hover {
+      color: #F44D4D; }
+
+.dark-modal .modal-content {
+    background-color: #495057; /* This is a dark grey color */
+    color: #fff; /* This is white color for the text */
+}
+
+.table-grey {
+    --bs-table-bg: #323539 !important;
+    --bs-table-hover-bg: #434c54 !important;
+}
+
+.card-grey {
+    --bs-card-bg: #4e5359 !important;
+
+}
+
+.full-width {
+  width: 100%;
+}
+
+.download-report-tooltip .tooltip-inner {
+    min-width: 500px; /* the minimum width */
+}
+:root {
+    --bs-secondary-color: #6c757d; /* Adjusted to a lighter shade */
+}
+
+.alert-danger .alert-link:hover {
+    color: lightcoral; /* Change this to your desired color */
+}

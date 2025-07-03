@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta %}{% endblock %}
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    {% block style %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}BugTracker</title>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'icon/bug-tracker-32x32.png' %}" sizes="32x32">
+    <link rel="apple-touch-icon" type="image/png" href="{% static 'icon/bug-tracker-192x192.png' %}" sizes="192x192">
+
+    <link rel="dns-prefetch" href="//dataintel.pl">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        {% include 'navbar.html' %}
+
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {% if message.tags == 'alert-danger' %}
+                <i class="bi bi-exclamation-circle-fill me-1"></i>
+            {% elif message.tags == 'alert-success' %}
+                <i class="bi bi-check-circle-fill me-1"></i>
+            {% endif %}
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </header>
+    <main class="container">
+        {% block page_content %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}{% include 'footer.html' %}{% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="{% static 'js/nav_collapse.js' %}" ></script>
+
+    <script>
+        setTimeout(function () {
+            var alerts = document.querySelectorAll('.alert:not(.persistentAlert)');
+            alerts.forEach(function(alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+    </script>
+    {% block front_scripts %}
+    {% endblock %}
+    {% block additional_scripts %}
+    {% endblock %}
+</body>
+</html>
