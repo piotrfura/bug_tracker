@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{% endblock %}
+
+{% block meta %}
+<meta name="title" content="BugTracker">
+<meta name="description"
+      content="BugTracker is a system for tracking bugs and issues in software development. It allows users to report bugs.">
+<meta name="keywords"
+      content="BugTracker, bug reports, issue tracking, bug reporting system, software bugs, bug management">
+<meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="my-4">Welcome to the Bug Tracker!</h1>
+        <p>BugTracker is a system for tracking bugs and issues in software development.
+        <br>It allows users to review existing bug reports and create new ones.</p>
+        <p>You can view the bug reports by clicking the button below:</p>
+    </div>
+    <div class="btn btn-time-primary rounded-pill">
+        <a class="nav-link"
+           href="{% url 'main:list_bug_reports' %}">
+            <i class="d-none d-sm-inline bi bi-list"></i>
+            <span class="">Go to the bugs list</span>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_scripts %}
+{% endblock %}

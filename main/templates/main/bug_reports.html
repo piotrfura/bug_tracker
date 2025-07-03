@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{% endblock %}
+
+{% block meta %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
+{% block page_content %}
+<h1 class="text-center">Bug Reports</h1>
+
+{% if bug_reports %}
+<table class="table table-hover table-dark my-3">
+    <thead>
+        <tr>
+            <th class="w-25">Created</th>
+            <th class="w-25">Title</th>
+            <th class="w-50">Description</th>
+        </tr>
+    </thead>
+    <tbody class="table-grey">
+    {% for bug_report in bug_reports %}
+        <tr>
+            <td>{{ bug_report.created_at|date:"Y-m-d H:i" }}</td>
+            <td>{{ bug_report.title }}</td>
+            <td>{{ bug_report.description }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+{% block additional_scripts %}
+{% endblock %}
