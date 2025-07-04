@@ -1,0 +1,30 @@
+name: Run tests on dev branch
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies with Poetry
+        run: |
+          poetry config virtualenvs.create false
+          poetry install --no-interaction --no-ansi
+
+      - name: Run tests with pytest
+        run: |
+          poetry run pytest --cov=bug_tracker --cov-report=xml --cov-report=html --cov-fail-under=75
