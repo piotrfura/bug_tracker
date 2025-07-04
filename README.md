@@ -15,4 +15,5 @@ Follow the instructions below to get started.
 2. Navigate to the project directory `cd bug_tracker`
 3. Set up and activate the virtual environment `python3 -m venv venv && source venv/bin/activate`
 4. Install dependencies `poetry install`
-5. Run the Django development server `python3 manage.py runserver`
+5. Run migrations to set up the database `python3 manage.py migrate`
+6. Run the Django development server `python3 manage.py runserver`
