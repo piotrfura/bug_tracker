@@ -1,0 +1,32 @@
+services:
+  bug_tracker:
+    container_name: bug_tracker
+    image: bug_tracker-amd64:master
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /var/www/bugtracker.dataintel.pl/static:/app/static
+      - ./logs/gunicorn:/app/logs
+    environment:
+      - DJANGO_SETTINGS_MODULE=settings.production
+    env_file:
+      - .env.prod
+    ports:
+      - "8009:8000"
+    depends_on:
+      - db_bug_tracker
+    restart: unless-stopped
+  db_bug_tracker:
+    container_name: db_bug_tracker
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.db
+    ports:
+      - "5439:5432"
+    restart: unless-stopped
+volumes:
+  postgres_data:
