@@ -45,5 +45,5 @@ class BugReportForm(forms.ModelForm):
                 FloatingField('title', required=True),
                 Field('description', required=True),
             ),
-            Submit('submit', 'Submit the bug', css_class='btn-time-primary w-100'),
+            Submit('submit', 'Submit the bug', css_class='btn btn-time-primary rounded-pill w-100'),
         )
