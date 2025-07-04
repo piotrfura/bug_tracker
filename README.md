@@ -1,4 +1,4 @@
-# Bug Tracker
+# Bug Tracker ![Bug Tracker Logo](static_files/icon/bug-tracker-32x32.png)
 This is a Django project for tracking the bug reports.
 
 ## Getting Started
