@@ -37,7 +37,7 @@ def list_bug_reports(request):
         HttpResponse: Rendered HTML for the bug reports page with context.
     """
     context = {}
-    context['bug_reports'] = BugReport.objects.all().order_by('created_at')  # Fetch all bug reports
+    context['bug_reports'] = BugReport.objects.all().order_by('-created_at')  # Fetch all bug reports
     return render(request, 'main/bug_reports.html', context)
 
 
