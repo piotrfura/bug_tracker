@@ -4,7 +4,7 @@ This is a Django project for tracking the bug reports.
 ## Getting Started
 This project is set up to use Django with Poetry for dependency management. 
 
-Follow the instructions below to get started or go to the working instance at [bugtracker.dataintel.pl](https://bugtracker.dataintel.pl).
+Follow the instructions below to get started or go to the working instance at [bugtracker.piotrfura.pl](https://bugtracker.piotrfura.pl).
 
 ## Prerequisites
 - Python 3.12 or higher
