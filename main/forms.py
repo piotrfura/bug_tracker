@@ -1,6 +1,8 @@
 from django import forms
+from django.forms import Textarea
 from crispy_bootstrap5.bootstrap5 import FloatingField
 from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Field
 from crispy_forms.layout import Fieldset
 from crispy_forms.layout import Layout
 from crispy_forms.layout import Submit
@@ -35,12 +37,13 @@ class BugReportForm(forms.ModelForm):
         self.fields['title'].label = 'Bug title'
         self.fields['description'].label = 'Bug description'
         self.fields['description'].help_text = 'Be as detailed as possible to help us understand the issue.'
+        self.fields['description'].widget = Textarea(attrs={'rows': 6, 'maxlength': 1000})
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Fieldset(
                 'Bug Report Form',
                 FloatingField('title', required=True),
-                FloatingField('description', required=True),
+                Field('description', required=True),
             ),
             Submit('submit', 'Submit the bug', css_class='btn-time-primary w-100'),
         )
