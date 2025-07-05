@@ -5,7 +5,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field
 from crispy_forms.layout import Fieldset
 from crispy_forms.layout import Layout
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Button
+
 
 from main.models import BugReport
 
@@ -45,5 +46,5 @@ class BugReportForm(forms.ModelForm):
                 FloatingField('title', required=True),
                 Field('description', required=True),
             ),
-            Submit('submit', 'Submit the bug', css_class='btn btn-time-primary rounded-pill w-100'),
+            Button('submit', 'Submit the bug', css_class='btn-time-primary rounded-pill w-100'),
         )
