@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /var/www/bugtracker.piotrfura.pl/static:/app/static
+      - /var/www/bugtracker.piotrfura.pl/docs:/app/mkdocs/public
       - ./logs/gunicorn:/app/logs
     environment:
       - DJANGO_SETTINGS_MODULE=settings.production

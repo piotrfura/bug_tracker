@@ -29,6 +29,7 @@ pytest-cov = "^6.2.1"
 pytest-sugar = "^1.0.0"
 isort = "^6.0.1"
 mypy = "^1.16.1"
+mkdocs-material = "^9.6.15"
 
 [build-system]
 requires = ["poetry-core"]
