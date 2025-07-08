@@ -1,0 +1,38 @@
+site_name: Bug Tracker Documentation
+site_url: https://bugtracker.piotrfura.pl/docs/
+theme:
+  name: material
+  logo: images/bug-tracker-32x32.png # Path to the logo image
+  palette:
+    - scheme: default
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: green
+      accent: lime
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  favicon: images/bug-tracker-32x32.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+
+nav:
+  - Getting started:
+    - Home: index.md # Home page of the documentation
+    - Features: features.md # Overview of features
+    - Technology Stack: tech-stack.md # Details on the technology stack
+  - Go to the BugTracker App ↗︎: "https://bugtracker.piotrfura.pl/"
+
+copyright: Copyright &copy; 2025 Piotr Fura
+extra:
+  generator: false # Disable the generator tag in the HTML head
+  social:
+      - icon: fontawesome/brands/github
+        link: https://l.piotrfura.pl/github
+repo_url: https://github.com/piotrfura/bug_tracker
