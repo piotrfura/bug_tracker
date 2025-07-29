@@ -3,6 +3,7 @@ from django.urls import path
 from main.views import create_bug_report
 from main.views import index
 from main.views import list_bug_reports
+from django.contrib import admin
 
 
 app_name = "main"
@@ -13,4 +14,4 @@ urlpatterns = [
     path("bugs/create/", create_bug_report, name="create_bug_report"),
 ]
 
-admin.site.site_title = "Bug Tracker Admin Portal"
+admin.site.site_header = "Bug Tracker"
