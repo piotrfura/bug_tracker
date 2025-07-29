@@ -63,16 +63,22 @@ def create_bug_report(request):
 
     if request.method == 'POST':
         form = BugReportForm(request.POST)
+        context['form'] = form  # Update context with the submitted form
         if form.is_valid():
             try:
-                bug_report = BugReport.objects.create(**form.cleaned_data)
-                bug_report.save()
+                bug_report = form.save()
                 messages.success(request, "Bug report created successfully!")
                 return redirect(reverse("main:list_bug_reports"))
             except Exception as e:
                 messages.error(request, f"Error creating bug report: {e}")
-                return render(request, 'main/create_bug_report.html', context)
         else:
-            messages.error(request, "Bug report creation failed. Please try again.")
-            return render(request, 'main/create_bug_report.html', context)
+            # Display validation errors from the form
+            for field, errors in form.errors.items():
+                for error in errors:
+                    # Use a specific message for non-field errors if any
+                    if field == '__all__':
+                         messages.error(request, error)
+                    else:
+                        messages.error(request, f"{form.fields[field].label}: {error}")
+    
     return render(request, 'main/create_bug_report.html', context)

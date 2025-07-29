@@ -180,3 +180,7 @@ NTFY_TOKEN = env("NTFY_TOKEN", default=None)
 if NTFY_URL and NTFY_TOKEN:
     NTFY_URL = env("NTFY_URL")
     NTFY_TOKEN = env("NTFY_TOKEN")
+
+# OpenAI API key for moderation
+# ------------------------------------------------------------------------------
+OPENAI_API_KEY = env("OPENAI_API_KEY", default=None)

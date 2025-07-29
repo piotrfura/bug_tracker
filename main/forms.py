@@ -9,6 +9,7 @@ from crispy_forms.layout import Submit
 
 
 from main.models import BugReport
+from main.moderation import is_inappropriate
 
 
 class BugReportForm(forms.ModelForm):
@@ -32,7 +33,24 @@ class BugReportForm(forms.ModelForm):
             'title',
             'description',
         ]
+        
+    def clean(self):
+        cleaned_data = super().clean()
+        title = cleaned_data.get("title")
+        description = cleaned_data.get("description")
 
+        if title and is_inappropriate(title):
+            raise forms.ValidationError(
+                {'title': "The title contains inappropriate content and cannot be submitted."}
+            )
+
+        if description and is_inappropriate(description):
+            raise forms.ValidationError(
+                {'description': "The description contains inappropriate content and cannot be submitted."}
+            )
+
+        return cleaned_data
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].label = 'Bug title'
